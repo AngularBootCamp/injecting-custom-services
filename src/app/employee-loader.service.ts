@@ -9,10 +9,14 @@ export interface Employee {
   last_name: string;
 }
 
-@Injectable()
+@Injectable({
+  // This service should be created
+  // by the root application injector.
+  providedIn: 'root'
+})
 export class EmployeeLoaderService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   loadEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(API_URL + '/employees');
