@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { EmployeeLoaderService, Employee } from './employee-loader.service';
+import { Employee, EmployeeLoaderService } from './employee-loader.service';
 
 @Component({
   selector: 'app-root',
