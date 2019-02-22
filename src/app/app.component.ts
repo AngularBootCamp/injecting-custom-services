@@ -7,7 +7,7 @@ import { Employee, EmployeeLoaderService } from './employee-loader.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  employeeData: Employee[];
+  employeeData: Employee[] = [];
 
   constructor(svc: EmployeeLoaderService) {
     svc.loadEmployees()
