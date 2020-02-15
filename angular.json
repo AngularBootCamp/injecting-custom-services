@@ -116,6 +116,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "injecting-custom-services"
 }
