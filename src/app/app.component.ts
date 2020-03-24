@@ -10,11 +10,11 @@ import {
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  employeeData: Employee[] = [];
+  employees: Employee[] = [];
 
   constructor(svc: EmployeeLoaderService) {
     svc
       .loadEmployees()
-      .subscribe(employees => (this.employeeData = employees));
+      .subscribe(employees => (this.employees = employees));
   }
 }
