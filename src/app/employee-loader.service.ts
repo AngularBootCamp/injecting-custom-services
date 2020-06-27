@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 const apiUrl = 'https://api.angularbootcamp.com';
 
 export interface Employee {
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
 }
 
 @Injectable({
