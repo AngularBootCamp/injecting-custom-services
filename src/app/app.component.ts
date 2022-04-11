@@ -11,10 +11,12 @@ import {
 })
 export class AppComponent {
   employees: Employee[] = [];
+  loading = true;
 
   constructor(svc: EmployeeLoaderService) {
-    svc
-      .loadEmployees()
-      .subscribe(employees => (this.employees = employees));
+    svc.loadEmployees().subscribe(employees => {
+      this.employees = employees;
+      this.loading = false;
+    });
   }
 }
