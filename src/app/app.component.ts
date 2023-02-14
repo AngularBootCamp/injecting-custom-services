@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import {
   Employee,
@@ -9,14 +10,21 @@ import {
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   employees: Employee[] = [];
   loading = true;
+  subscription: Subscription;
 
   constructor(svc: EmployeeLoaderService) {
-    svc.loadEmployees().subscribe(employees => {
+    // Since this component doesn't know the "source" of the observable,
+    // it is a good practice to perform "clean-up" on it via the OnDestroy hook
+    this.subscription = svc.loadEmployees().subscribe(employees => {
       this.employees = employees;
       this.loading = false;
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
