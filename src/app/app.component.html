@@ -1,9 +1,12 @@
 <article>
   <header>Employees</header>
-  <p *ngIf="loading">Loading...</p>
-  <ul>
-    <li *ngFor="let e of employees">
-      {{ e.firstName }} {{ e.lastName }}
-    </li>
-  </ul>
+  @if (loading) {
+    <p>Loading...</p>
+  } @else {
+    <ul>
+      @for (e of employees; track e) {
+        <li>{{ e.firstName }} {{ e.lastName }}</li>
+      }
+    </ul>
+  }
 </article>

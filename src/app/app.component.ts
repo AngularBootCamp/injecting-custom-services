@@ -1,4 +1,3 @@
-import { NgIf, NgFor } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -10,8 +9,7 @@ import {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  standalone: true,
-  imports: [NgIf, NgFor]
+  standalone: true
 })
 export class AppComponent implements OnDestroy {
   employees: Employee[] = [];
